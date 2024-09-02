@@ -1,4 +1,5 @@
 package com.green;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -12,6 +13,7 @@ public class Main {
             System.out.println("2. Edit");
             System.out.println("3. Dispaly");
             System.out.println("4. Delete");
+            System.out.println("5. Add Consomations");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -50,6 +52,23 @@ public class Main {
                     System.out.print("Enter user ID: ");
                     id = scanner.nextLine();
                     User.delete(id);
+                    break;
+                case 5:
+                    System.out.print("Enter user ID: ");
+                    id = scanner.nextLine();
+                    User user = User.getUser(id);
+                    if (user != null) {
+                        System.out.print("Consumption value: ");
+                        int value = scanner.nextInt();
+                        System.out.print("Start date (YYYY-MM-DD): ");
+                        LocalDate startDate = LocalDate.parse(scanner.next());
+                        System.out.print("Enter end date (YYYY-MM-DD): ");
+                        LocalDate endDate = LocalDate.parse(scanner.next());
+                        Consomation consomation = new Consomation(value, startDate, endDate);
+                        user.addConsomation(consomation);
+                    } else {
+                        System.out.println("User not found.");
+                    }
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");

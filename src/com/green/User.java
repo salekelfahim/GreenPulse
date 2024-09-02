@@ -6,7 +6,9 @@ public class User {
     private String lastname;
     private int age;
     private String id;
+    private ArrayList<Consomation> consomations = new ArrayList<>();
     private static ArrayList<User> users = new ArrayList<>();
+
 
     public User(String firstname, String lastname, int age, String id) {
         this.firstname = firstname;
@@ -90,6 +92,9 @@ public class User {
                 break;
             }
         }
+    }
+    public void addConsomation(Consomation consomation) {
+        consomations.add(consomation);
     }
 
 }

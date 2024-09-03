@@ -62,6 +62,11 @@ public class User {
         System.out.println("Last Name: " + lastname);
         System.out.println("Age: " + age);
         System.out.println("User ID: " + id);
+        int total = 0;
+        for (Consomation consomation : consomations) {
+            total += consomation.getValue();
+        }
+        System.out.println("Total Consumation: " + total);
     }
 
     public static void displayUser(String id) {

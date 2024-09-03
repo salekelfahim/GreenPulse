@@ -24,5 +24,8 @@ public class Consomation {
     public LocalDate getStartdate() {
         return startdate;
     }
+    public void consomationDisplay(){
+        System.out.println("Value: " + value);
+    }
 
 }

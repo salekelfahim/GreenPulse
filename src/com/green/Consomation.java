@@ -25,7 +25,7 @@ public class Consomation {
         return startdate;
     }
     public void consomationDisplay(){
-        System.out.println("Value: " + value);
+        System.out.println("Value Total: " + value);
     }
 
 }

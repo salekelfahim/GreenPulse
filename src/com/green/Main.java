@@ -14,6 +14,7 @@ public class Main {
             System.out.println("3. Dispaly");
             System.out.println("4. Delete");
             System.out.println("5. Add Consomations");
+            System.out.println("6. Rapport");
 
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -70,8 +71,18 @@ public class Main {
                         System.out.println("User not found.");
                     }
                     break;
+                case 6:
+                    System.out.print("Enter user ID: ");
+                    id = scanner.nextLine();
+                    user = User.getUser(id);
+                    if (user != null) {
+                        user.generateReport();
+                    } else {
+                        System.out.println("User not found.");
+                    }
+                    break;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice!!!!");
             }
         }
     }

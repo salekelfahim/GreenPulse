@@ -1,5 +1,7 @@
 package com.green;
 import java.util.ArrayList;
+import java.time.temporal.ChronoUnit;
+
 
 public class User {
     private String firstname;
@@ -100,6 +102,25 @@ public class User {
     }
     public void addConsomation(Consomation consomation) {
         consomations.add(consomation);
+    }
+
+    public void generateReport() {
+        double daily = 0;
+        double weekly = 0;
+        double monthly = 0;
+
+        for (Consomation consomation : consomations) {
+            long days = ChronoUnit.DAYS.between(consomation.getStartdate(), consomation.getEnddate()) + 1;
+            double dailyValue = (double) consomation.getValue() / days;
+            daily += dailyValue;
+            weekly += dailyValue * 7;
+            monthly += dailyValue * 30;
+        }
+
+        System.out.println("Consumption Report for User ID: " + id);
+        System.out.println("Daily: %.2f" + daily);
+        System.out.println("Weekly: %.2f" + weekly);
+        System.out.println("Monthly: %.2f" + monthly);
     }
 
 }
